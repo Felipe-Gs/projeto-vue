@@ -2,7 +2,7 @@
     <footer id="footer">
         <p>Carros Felipe Gomes &copy; 2024</p>
     </footer>
-    <p>footer</p>
+    
 </template>
 
 <script>
