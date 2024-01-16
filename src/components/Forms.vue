@@ -115,6 +115,13 @@
 
                 const res = await req.json()
                 console.log(res)
+                this.marca =''
+                this.modelo =''
+                this.nome =''
+                this.idade =''
+                this.sexo =''
+                this.descricao =''
+                
             }
         },
 
