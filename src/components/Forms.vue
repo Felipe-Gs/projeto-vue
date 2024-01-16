@@ -1,7 +1,7 @@
 <template>
     
-    <p>Componente de mensagem</p>
-    <div>
+    <div class="div-container">
+        <Message :msg="msg" v-show="msg"/>
         <form id="Carros-forms" @submit="createCarro">
             <div class="input-container">
                 <label for="nome">Nome do cliente</label>
@@ -66,7 +66,9 @@
 </template>
 
 <script>
+import Message from './Message.vue';
     export default {
+  components: { Message },
         name: "Forms",
         data(){
             return{
@@ -112,6 +114,7 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: dataJson
                 })
+                this.msg = "Pedido de revisao enviado com sucesso!"
 
                 const res = await req.json()
                 console.log(res)
@@ -121,12 +124,17 @@
                 this.idade =''
                 this.sexo =''
                 this.descricao =''
+
+                setTimeout(()=> this.msg ="", 2000)
                 
             }
         },
 
         mounted(){
             this.getCarros()
+        },
+        components: {
+            Message
         }
     }
 
@@ -141,6 +149,14 @@
         display: flex;
         flex-direction: column;
         margin-bottom: 20px;
+    }
+
+    .div-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
     }
     label{
         font-weight: bold;
