@@ -2,44 +2,62 @@
     
     <p>Componente de mensagem</p>
     <div>
-        <form id="Carros-forms">
+        <form id="Carros-forms" @submit="createCarro">
             <div class="input-container">
                 <label for="nome">Nome do cliente</label>
                 <input type="text" id="nome" name="nome" v-model="nome" placeholder="digite seu nome">
             </div>
 
             <div class="input-container">
-                <label for="tipo_carro">Escolha o modelo</label>
+                <label for="nome">Idade do cliente</label>
+                <input type="text" id="idade" name="idade" v-model="idade" placeholder="digite sua idade">
+            </div>
+
+            <div class="input-container">
+                <label id="input-title" for="sexo">sexo</label>
+                <select name="sexo" id="sexo" v-model="sexo">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                    
+                </select>
+            </div>
+
+            <div class="input-container">
+                <label for="tipo_carro">Modelo do carro</label>
                 <select name="modelo" id="modelo" v-model="modelo">
                     <option value="">Selecione o modelo do carro</option>
-                    <option value="Corrola">Corrola</option>
-                    <option value="Civic">Civic</option>
+                    <option v-for="carro in veiculos" :key="carro.id" :value="carro.modelo">{{ carro.modelo }}</option>
+                    
                 </select>
             </div>
 
             <div class="input-container">
-                <label for="tipo_carro">Escolha a marca</label>
+                <label for="tipo_carro">Marca do carro</label>
                 <select name="marca" id="marca" v-model="marca">
                     <option value="">Selecione a marca do carro</option>
-                    <option value="Toyota">Toytoa</option>
-                    <option value="Honda">Honda</option>
+                    <option v-for="carro in veiculos" :key="carro.id" :value="carro.marca">{{carro.marca}}</option>
+                    
                 </select>
-
             </div>
 
             <div class="input-container">
-            <label id="input-title" for="sexo">sexo</label>
-            <div class="checkbox-container">
+                <label for="ano">Ano do carro</label>
                 
-                    <input type="checkbox" name="sexo" v-model="sexo" value="Masculino">
-                    <span>Masculino</span>
-                
-                
-                    <input type="checkbox" name="sexo" v-model="sexo" value="Feminino">
-                    <span>Feminino</span>
-                
+                <input type="text" id="ano" name="ano" v-model="ano" placeholder="Ano do carro">
             </div>
-    </div>
+
+            <div class="input-container">
+                <label for="ano">Descrição do que fazer</label>
+                
+                <select name="descricao" id="descricao" v-model="descricao">
+                    <option value="">Descricao do que fazer</option>
+                    <option value="Verificação geral">Verificação geral</option>
+                    <option value="Substituição de peças">Substituição de peças</option>
+                    <option value="Troca de óleo">Troca de óleo</option>
+                    <option value="Reparo no motor">Reparo no motor</option>
+                </select>
+            </div>
+
     <div class="input-container">
     <input type="submit" class="submit-btn" value="Adicionar">
 </div>
@@ -49,8 +67,62 @@
 
 <script>
     export default {
-        name: "Forms"
+        name: "Forms",
+        data(){
+            return{
+                veiculos: [],
+                marca: null,
+                modelo: null,
+                nome: null,
+                idade: null,
+                ano: null,
+                sexo: null,
+                descricao: null,
+                msg: null,
+            }
+        },
+        methods: {
+            async getCarros() {
+                try {
+                    const req = await fetch('http://localhost:3000/veiculos/');
+                    const data = await req.json();
+                    this.veiculos = data;  // Ajuste aqui, pois os veículos estão diretamente em 'data'
+                    console.log(data);
+                } catch (error) {
+                    console.error('Erro ao obter os carros:', error);
+                }
+            },
+            async createCarro(e){
+                e.preventDefault();
+                const data = {
+                    marca: this.marca,
+                    modelo: this.modelo,
+                    nome: this.nome,
+                    idade: this.idade,
+                    ano: this.ano,
+                    sexo: this.sexo,
+                    descricao: this.descricao,
+                    status: 'solicitado'
+                }
+                // console.log(data);
+                const dataJson = JSON.stringify(data)
+
+                const req = await fetch('http://localhost:3000/veiculos', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: dataJson
+                })
+
+                const res = await req.json()
+                console.log(res)
+            }
+        },
+
+        mounted(){
+            this.getCarros()
+        }
     }
+
 </script>
 
 <style scoped>
@@ -77,7 +149,7 @@
     .checkbox-container {
         display: flex;
         flex-direction: row;  
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
     }
 .checkbox-container span, .checkbox-container input {
