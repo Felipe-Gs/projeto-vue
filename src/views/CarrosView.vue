@@ -1,5 +1,5 @@
 <template>
-    <div >
+    <div class="main-container">
       <h1>Carros</h1>
       fe
       fe
