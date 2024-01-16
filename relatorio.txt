@@ -1,0 +1,96 @@
+--------------veiculos--------------
+selecionar todos os veiculos
+SELECT * FROM veiculos;
+
+todos os veiculos por pessoa ordenado por nome de pessoa
+
+SELECT * FROM pessoas p
+JOIN veiculos v ON p.nome = v.proprietario.nome
+ORDER BY p.nome;
+
+informações de quem tem mais veiculos (homens ou mulheres)
+
+SELECT genero, COUNT(*) as total_veiculos
+FROM pessoas p
+JOIN veiculos v ON p.nome = v.proprietario.nome
+GROUP BY genero
+ORDER BY total_veiculos DESC
+LIMIT 1;
+
+Todas as marcas ordenadas pelo número de veículos:
+
+Copy code
+SELECT marca, COUNT(*) as total_veiculos
+FROM veiculos
+GROUP BY marca
+ORDER BY total_veiculos DESC;
+
+Totais de marcas ordenadas do maior para o menor, separados entre homens e mulheres:
+
+Copy code
+SELECT marca, genero, COUNT(*) as total_veiculos
+FROM veiculos v
+JOIN pessoas p ON v.proprietario.nome = p.nome
+GROUP BY marca, genero
+ORDER BY total_veiculos DESC;
+
+----------------Pessoas------------------
+Todas as pessoas
+
+SELECT * FROM pessoas;
+
+Todas as pessoas separadas por homens e mulheres (com idade média de homens e mulheres):
+
+SELECT genero, AVG(idade) as media_idade
+FROM pessoas
+GROUP BY genero;
+
+------------revisões--------------------
+Todas as revisões dentro de um periodo:
+SELECT * FROM veiculos v
+JOIN pessoas p ON v.proprietario.nome = p.nome
+JOIN revisoes r ON v.id = r.veiculo_id
+WHERE r.data BETWEEN '2022-01-01' AND '2023-01-01';
+
+Marcas com maior numero de revisoes:
+
+SELECT marca, COUNT(*) as total_revisoes
+FROM veiculos v
+JOIN revisoes r ON v.id = r.veiculo_id
+GROUP BY marca
+ORDER BY total_revisoes DESC;
+
+Pessoas com maior numero de revisões:
+
+SELECT p.nome, COUNT(*) as total_revisoes
+FROM pessoas p
+JOIN veiculos v ON p.nome = v.proprietario.nome
+JOIN revisoes r ON v.id = r.veiculo_id
+GROUP BY p.nome
+ORDER BY total_revisoes DESC;
+
+Média de tempo entre uma revisão e outra de uma mesma pessoa:
+
+SELECT p.nome, AVG(DATEDIFF(r2.data, r1.data)) as media_tempo_entre_revisoes
+FROM pessoas p
+JOIN veiculos v ON p.nome = v.proprietario.nome
+JOIN revisoes r1 ON v.id = r1.veiculo_id
+JOIN revisoes r2 ON v.id = r2.veiculo_id AND r2.data > r1.data
+GROUP BY p.nome;
+
+Próximas revisões baseado no tempo médio baseado na última revisão:
+
+SELECT v.id, v.marca, v.modelo, p.nome as proprietario, r1.data as ultima_revisao, DATE_ADD(r1.data, INTERVAL media_tempo_entre_revisoes DAY) as proxima_revisao
+FROM veiculos v
+JOIN pessoas p ON v.proprietario.nome = p.nome
+JOIN revisoes r1 ON v.id = r1.veiculo_id
+JOIN (
+  SELECT p.nome, AVG(DATEDIFF(r2.data, r1.data)) as media_tempo_entre_revisoes
+  FROM pessoas p
+  JOIN veiculos v ON p.nome = v.proprietario.nome
+  JOIN revisoes r1 ON v.id = r1.veiculo_id
+  JOIN revisoes r2 ON v.id = r2.veiculo_id AND r2.data > r1.data
+  GROUP BY p.nome
+) as medias ON p.nome = medias.nome;
+
+

@@ -1,0 +1,67 @@
+{
+    "veiculos": [
+      {
+        "id": 1,
+        "marca": "Toyota",
+        "modelo": "Corolla",
+        "ano": 2020,
+        "proprietario": {
+          "nome": "Ana Silva",
+          "idade": 35,
+          "genero": "Feminino"
+        },
+        "revisoes": [
+          { "data": "2022-01-01", "descricao": "Troca de óleo" },
+          { "data": "2023-02-15", "descricao": "Reparo no motor" }
+        ]
+      },
+      {
+        "id": 2,
+        "marca": "Honda",
+        "modelo": "Civic",
+        "ano": 2021,
+        "proprietario": {
+          "nome": "Carlos Oliveira",
+          "idade": 28,
+          "genero": "Masculino"
+        },
+        "revisoes": [
+          { "data": "2022-05-10", "descricao": "Verificação geral" },
+          { "data": "2023-08-20", "descricao": "Substituição de peças" }
+        ]
+      }
+      
+    ],
+  
+    "pessoas": [
+      {
+        "nome": "Ana Silva",
+        "idade": 35,
+        "genero": "Feminino",
+        "veiculos": [
+          { "id": 1, "marca": "Toyota", "modelo": "Corolla" }
+          
+        ],
+        "revisoes": [
+          { "data": "2022-01-01", "descricao": "Troca de óleo" },
+          { "data": "2023-02-15", "descricao": "Reparo no motor" }
+        ]
+      },
+      {
+        "nome": "Carlos Oliveira",
+        "idade": 28,
+        "genero": "Masculino",
+        "veiculos": [
+          { "id": 2, "marca": "Honda", "modelo": "Civic" }
+         
+        ],
+        "revisoes": [
+          { "data": "2022-05-10", "descricao": "Verificação geral" },
+          { "data": "2023-08-20", "descricao": "Substituição de peças" }
+         
+        ]
+      }
+      
+    ]
+  }
+  
