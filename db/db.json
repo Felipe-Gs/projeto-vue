@@ -1,36 +1,48 @@
 {
   "veiculos": [
     {
-      "id": "6fdf",
+      "id": "83f2",
       "marca": "Volkswagen",
       "modelo": "Golf",
-      "nome": "gomes felipe",
-      "idade": "21",
-      "ano": "2020",
-      "sexo": "Masculino",
-      "descricao": "Substituição de peças",
-      "status": "solicitado"
-    },
-    {
-      "id": "9417",
-      "marca": "Chevrolet",
-      "modelo": "Focus",
       "nome": "FELIPE GOMES DA SILVA",
       "idade": "21",
       "ano": "2020",
       "sexo": "Masculino",
-      "descricao": "Substituição de peças",
-      "status": "solicitado"
+      "descricao": "Troca de óleo",
+      "status": "finalizado",
+      "novoStatus": "finalizado"
     },
     {
-      "id": "5633",
-      "marca": "Volkswagen",
-      "modelo": "Focus",
-      "nome": "joao gomes",
-      "idade": "30",
-      "ano": "2021",
+      "id": "abc123",
+      "marca": "Toyota",
+      "modelo": "Corolla",
+      "nome": "Amanda Santos",
+      "idade": "28",
+      "ano": "2022",
+      "sexo": "Feminino",
+      "descricao": "Inspeção de freios",
+      "status": "em-andamento"
+    },
+    {
+      "id": "def456",
+      "marca": "Chevrolet",
+      "modelo": "Cruze",
+      "nome": "Lucas Oliveira",
+      "idade": "25",
+      "ano": "2019",
       "sexo": "Masculino",
-      "descricao": "Verificação geral",
+      "descricao": "Substituição de peças",
+      "status": "finalizado"
+    },
+    {
+      "id": "ghi789",
+      "marca": "Ford",
+      "modelo": "Focus",
+      "nome": "Isabella Almeida",
+      "idade": "22",
+      "ano": "2021",
+      "sexo": "Feminino",
+      "descricao": "Reparo no motor",
       "status": "solicitado"
     }
   ]

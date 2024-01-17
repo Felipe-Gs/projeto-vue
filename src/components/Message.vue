@@ -2,7 +2,6 @@
     <div class="message-container">
         <p>
            {{ msg }}
-           felipe
         </p>
     </div>
 </template>

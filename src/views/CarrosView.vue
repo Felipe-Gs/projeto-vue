@@ -1,6 +1,6 @@
 <template>
     <div class="main-container">
-      <h1>Solicitações de Revisao</h1>
+      <h1>Solicitações de Revisão</h1>
       <Dashboard />
     </div>
 </template>
