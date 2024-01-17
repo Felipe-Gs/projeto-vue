@@ -22,17 +22,16 @@
                     <div>{{ veiculo.modelo }}</div>
                     <div> {{ veiculo.descricao }}</div>
                     <div>
-                    <div> {{ veiculo.status }}</div>
-                        <div>
-                        <select v-model="veiculo.novoStatus" class="status">
-                            <option value="solicitado">Solicitado</option>
-                            <option value="em-producao">Em Produção</option>
-                            <option value="finalizado">Finalizado</option>
-                           
-                        </select>
+                        <div> {{ veiculo.status }}</div>
+                            <div>
+                                <select v-model="veiculo.novoStatus" class="status">
+                                <option value="solicitado">Solicitado</option>
+                                <option value="em-producao">Em Produção</option>
+                                <option value="finalizado">Finalizado</option>
+                                </select>
+                                <button @click="atualizarStatus(veiculo.id, veiculo.novoStatus)" class="update-status-btn">Atualizar Status</button>
+                            </div>
                         </div>
-                </div>
-                   
                     <div>
                         <button @click="cancelarPedido(veiculo.id)" class="delete-btn">Cancelar</button>
                     </div>
@@ -41,12 +40,7 @@
         </div>
         </div>
         </div>
-        <div class="table-actions">
-            <select name="status" class="status">
-                <option value="">Status do pedido</option>
-            </select>
-            <button class="delete-btn">Cancelar</button>
-        </div>
+        
 
     </div>
 </template>
@@ -96,9 +90,33 @@ import Message from './Message.vue'
                 } catch (error) {
                     console.error("Erro ao cancelar o pedido:", error);
                 }
-                this.msg = "Pedido deletado com sucesso!"
+                this.msg = `Pedido deletado com sucesso!`
                 setTimeout(()=> this.msg ="", 2000)
+            },
+
+            async atualizarStatus(id, novoStatus) {
+            try {
+                const response = await fetch(`http://localhost:3000/veiculos/${id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
                 },
+                body: JSON.stringify({
+                    ...this.veiculos.find(veiculo => veiculo.id === id),  
+                    status: novoStatus,
+                }),
+                });
+
+                if (response.ok) {
+                await this.getCarros();
+                console.log('Status alterado com sucesso');
+                } else {
+                console.log('Erro ao atualizar o status');
+                }
+            } catch (error) {
+                console.error(error);
+            }
+            }
         },
         components:{
             Message
