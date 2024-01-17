@@ -1,7 +1,7 @@
 <template>
   <Banner/>
   <div class="main-container">
-    <h1>Crie seu cadastro na plataforma</h1>
+    <h1>Faça seu pedido de revisão</h1>
     <Forms/>
   </div>
 </template>
