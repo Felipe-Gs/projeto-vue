@@ -56,6 +56,17 @@
       "sexo": "Masculino",
       "descricao": "Substituição de peças",
       "status": "solicitado"
+    },
+    {
+      "id": "79f0",
+      "marca": "Ford",
+      "modelo": "Cruze",
+      "nome": "Felipe gomes",
+      "idade": "22",
+      "ano": "2020",
+      "sexo": "Masculino",
+      "descricao": "Reparo no motor",
+      "status": "solicitado"
     }
   ]
 }
