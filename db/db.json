@@ -1,28 +1,8 @@
 {
   "veiculos": [
     {
-      "id": "83f2",
-      "marca": "Volkswagen",
-      "modelo": "Golf",
-      "nome": "FELIPE GOMES DA SILVA",
-      "idade": "21",
-      "ano": "2020",
-      "sexo": "Masculino",
-      "descricao": "Troca de óleo",
-      "status": "finalizado",
-      "novoStatus": "finalizado"
-    },
-    {
-      "id": "abc123",
-      "marca": "Toyota",
-      "modelo": "Corolla",
-      "nome": "Amanda Santos",
-      "idade": "28",
-      "ano": "2022",
-      "sexo": "Feminino",
-      "descricao": "Inspeção de freios",
-      "status": "em-producao",
-      "novoStatus": "em-producao"
+      "status": "aprovado",
+      "id": "abc123"
     },
     {
       "id": "def456",
@@ -58,12 +38,12 @@
       "status": "solicitado"
     },
     {
-      "id": "79f0",
-      "marca": "Ford",
-      "modelo": "Cruze",
-      "nome": "Felipe gomes",
-      "idade": "22",
-      "ano": "2020",
+      "id": "a107",
+      "marca": "Toyota",
+      "modelo": "Corolla",
+      "nome": "Felipe Gomes",
+      "idade": 25,
+      "ano": 2022,
       "sexo": "Masculino",
       "descricao": "Reparo no motor",
       "status": "solicitado"
