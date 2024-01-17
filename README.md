@@ -13,7 +13,7 @@ npm run serve
 ### Rodar backend
 ```
 npm run backend
-
+http://localhost:3000/veiculos
 ```
 
 ### Compiles and minifies for production
