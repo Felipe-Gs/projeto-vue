@@ -21,7 +21,8 @@
       "ano": "2022",
       "sexo": "Feminino",
       "descricao": "Inspeção de freios",
-      "status": "em-andamento"
+      "status": "em-producao",
+      "novoStatus": "em-producao"
     },
     {
       "id": "def456",
@@ -43,6 +44,17 @@
       "ano": "2021",
       "sexo": "Feminino",
       "descricao": "Reparo no motor",
+      "status": "solicitado"
+    },
+    {
+      "id": "beac",
+      "marca": "Chevrolet",
+      "modelo": "Golf",
+      "nome": "felipe gomes",
+      "idade": "21",
+      "ano": "2020",
+      "sexo": "Masculino",
+      "descricao": "Substituição de peças",
       "status": "solicitado"
     }
   ]

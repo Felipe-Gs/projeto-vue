@@ -88,7 +88,7 @@ import Message from './Message.vue';
                 try {
                     const req = await fetch('http://localhost:3000/veiculos/');
                     const data = await req.json();
-                    this.veiculos = data;  // Ajuste aqui, pois os veículos estão diretamente em 'data'
+                    this.veiculos = data;
                     console.log(data);
                 } catch (error) {
                     console.error('Erro ao obter os carros:', error);
@@ -96,6 +96,11 @@ import Message from './Message.vue';
             },
             async createCarro(e){
                 e.preventDefault();
+                if (!this.nome || !this.idade || !this.modelo || !this.marca || !this.ano || !this.sexo || !this.descricao) {
+                    this.msg = "Por favor, preencha todos os campos obrigatórios.";
+                    setTimeout(() => (this.msg = ""), 2000);
+                    return;
+                }
                 const data = {
                     marca: this.marca,
                     modelo: this.modelo,
