@@ -1,61 +1,6 @@
 {
   "veiculos": [
     {
-      "id": "3a2d",
-      "marca": "Honda",
-      "modelo": "Civic",
-      "nome": "felipe",
-      "idade": "21",
-      "ano": "21",
-      "sexo": "Masculino",
-      "descricao": "Verificação geral",
-      "status": "solicitado"
-    },
-    {
-      "id": "2",
-      "marca": "Toyota",
-      "modelo": "Corolla",
-      "nome": "Amanda",
-      "idade": "28",
-      "ano": "2020",
-      "sexo": "Feminino",
-      "descricao": "Troca de óleo",
-      "status": "Em produção"
-    },
-    {
-      "id": "3",
-      "marca": "Ford",
-      "modelo": "Focus",
-      "nome": "Lucas",
-      "idade": "25",
-      "ano": "2022",
-      "sexo": "Masculino",
-      "descricao": "Inspeção de freios",
-      "status": "Finalizado"
-    },
-    {
-      "id": "4",
-      "marca": "Chevrolet",
-      "modelo": "Cruze",
-      "nome": "Isabella",
-      "idade": "22",
-      "ano": "2019",
-      "sexo": "Feminino",
-      "descricao": "Substituição de peças",
-      "status": "Em produção"
-    },
-    {
-      "id": "5",
-      "marca": "Volkswagen",
-      "modelo": "Golf",
-      "nome": "Rafael",
-      "idade": "30",
-      "ano": "2023",
-      "sexo": "Masculino",
-      "descricao": "Reparo no motor",
-      "status": "Solicitado"
-    },
-    {
       "id": "6fdf",
       "marca": "Volkswagen",
       "modelo": "Golf",
@@ -85,28 +30,6 @@
       "idade": "30",
       "ano": "2021",
       "sexo": "Masculino",
-      "descricao": "Verificação geral",
-      "status": "solicitado"
-    },
-    {
-      "id": "ce61",
-      "marca": "Volkswagen",
-      "modelo": "Civic",
-      "nome": "felipe gomes",
-      "idade": "54",
-      "ano": "2020",
-      "sexo": "Masculino",
-      "descricao": "Troca de óleo",
-      "status": "solicitado"
-    },
-    {
-      "id": "9bc3",
-      "marca": "Chevrolet",
-      "modelo": "Golf",
-      "nome": "luana",
-      "idade": "18",
-      "ano": "1999",
-      "sexo": "Feminino",
       "descricao": "Verificação geral",
       "status": "solicitado"
     }
