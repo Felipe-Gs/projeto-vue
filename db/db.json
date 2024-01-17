@@ -1,10 +1,6 @@
 {
   "veiculos": [
     {
-      "status": "aprovado",
-      "id": "abc123"
-    },
-    {
       "id": "def456",
       "marca": "Chevrolet",
       "modelo": "Cruze",
@@ -13,7 +9,8 @@
       "ano": "2019",
       "sexo": "Masculino",
       "descricao": "Substituição de peças",
-      "status": "finalizado"
+      "status": "em-producao",
+      "novoStatus": "em-producao"
     },
     {
       "id": "ghi789",
