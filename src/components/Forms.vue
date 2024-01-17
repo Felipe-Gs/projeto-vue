@@ -114,7 +114,7 @@ import Message from './Message.vue';
                     headers: { 'Content-Type': 'application/json' },
                     body: dataJson
                 })
-                this.msg = "Pedido de revisao enviado com sucesso!"
+                this.msg = "Pedido de reviãao enviado com sucesso!"
 
                 const res = await req.json()
                 console.log(res)
